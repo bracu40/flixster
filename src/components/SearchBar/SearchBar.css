@@ -1,0 +1,71 @@
+/* Visual intent: a compact pill-shaped input flanked by a primary Search
+   button and a secondary Clear button, sized to feel comfortable on any
+   viewport. */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-bar__input {
+  flex: 1 1 260px;
+  min-width: 160px;
+  height: 38px;
+  padding: 0 0.85rem;
+  border: 1px solid #4b5364;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1c1f26;
+  font-size: 0.95rem;
+}
+
+.search-bar__input:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+  border-color: #7aa2ff;
+}
+
+.search-bar__btn {
+  height: 38px;
+  padding: 0 1rem;
+  border: 1px solid #4b5364;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1c1f26;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.search-bar__btn:hover {
+  background: #1f2330;
+  color: #ffffff;
+}
+
+.search-bar__btn:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+.search-bar__btn--primary {
+  background: #1f2330;
+  color: #ffffff;
+  border-color: #1f2330;
+}
+
+.search-bar__btn--primary:hover {
+  background: #313749;
+  border-color: #313749;
+}
+
+@media (max-width: 599px) {
+  .search-bar {
+    flex-wrap: wrap;
+  }
+
+  .search-bar__input {
+    flex: 1 1 100%;
+  }
+}

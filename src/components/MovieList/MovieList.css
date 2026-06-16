@@ -1,0 +1,104 @@
+/* Visual intent: a uniform, gap-spaced grid that fills available width and
+   reflows naturally from 6 cards across on desktop down to a single column on
+   small phones. The grid lives on a soft light page so the dark header and
+   white cards both pop. */
+
+/*
+  Breakpoints (also documented in planning.md):
+   - >=1200px : 6 columns
+   -  900px–1199px : 4 columns
+   -  600px–899px  : 3 columns
+   -  400px–599px  : 2 columns
+   -  <400px : 1 column
+*/
+
+.movie-list {
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.movie-list__item {
+  display: block;
+}
+
+@media (max-width: 1199px) {
+  .movie-list {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .movie-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .movie-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 399px) {
+  .movie-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.movie-list__message {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #2c313a;
+}
+
+.movie-list__message--error {
+  color: #7d1414;
+  background: #fde2e2;
+  border-radius: 8px;
+  margin: 1.5rem;
+}
+
+.movie-list__message-detail {
+  color: #4a4f57;
+  font-size: 0.9rem;
+}
+
+.movie-list__loading {
+  text-align: center;
+  padding: 1rem;
+  color: #2c313a;
+}
+
+.movie-list__load-more-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 2.5rem;
+}
+
+.movie-list__load-more {
+  background: #1f2330;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.movie-list__load-more:hover {
+  background: #313749;
+  transform: translateY(-1px);
+}
+
+.movie-list__load-more:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+}

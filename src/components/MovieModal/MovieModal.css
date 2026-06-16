@@ -1,0 +1,193 @@
+/* Visual intent: the modal is a centered, scrollable dialog over a dark
+   semi-transparent backdrop. The backdrop image of the movie sits behind the
+   header and fades into the white panel for visual depth. The panel itself is
+   light with clear hierarchy: poster + title up top, metadata in the middle,
+   the AI Watch Recommendation in a softly highlighted block, then the trailer
+   and a single Close action. */
+
+.movie-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 10, 16, 0.7);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.movie-modal {
+  position: relative;
+  background: #ffffff;
+  color: #1c1f26;
+  border-radius: 12px;
+  width: min(960px, 100%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.movie-modal__backdrop {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.movie-modal__state {
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.movie-modal__state--error {
+  color: #7d1414;
+}
+
+.movie-modal__body {
+  position: relative;
+  padding: 1.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.movie-modal__title {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.movie-modal__poster {
+  display: block;
+  width: 220px;
+  max-width: 60%;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.movie-modal__meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+  row-gap: 0.4rem;
+  max-width: 540px;
+  margin: 0 auto 1rem;
+  text-align: left;
+}
+
+.movie-modal__meta dt {
+  font-weight: 700;
+  color: #2c313a;
+}
+
+.movie-modal__meta dd {
+  margin: 0;
+  color: #2c313a;
+}
+
+.movie-modal__overview {
+  max-width: 720px;
+  line-height: 1.5;
+  color: #2c313a;
+  margin: 0.5rem 0 1.25rem;
+  text-align: center;
+}
+
+.movie-modal__insight {
+  background: #f4f1ff;
+  border: 1px solid #ddd5ff;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.25rem;
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
+}
+
+.movie-modal__insight-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #3b2d8f;
+}
+
+.movie-modal__insight-text {
+  margin: 0;
+  color: #2c313a;
+  line-height: 1.5;
+}
+
+.movie-modal__insight-loading {
+  margin: 0;
+  color: #5b4ec1;
+  font-style: italic;
+}
+
+.movie-modal__trailer {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 1.25rem;
+}
+
+.movie-modal__trailer iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+
+.movie-modal__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-modal__close {
+  background: #1f2330;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.movie-modal__close:hover {
+  background: #313749;
+}
+
+.movie-modal__close:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 599px) {
+  .movie-modal__overlay {
+    padding: 1rem 0.5rem;
+  }
+
+  .movie-modal__body {
+    padding: 1.25rem 1rem 1.5rem;
+  }
+
+  .movie-modal__poster {
+    max-width: 70%;
+  }
+
+  .movie-modal__meta {
+    grid-template-columns: 1fr;
+    text-align: center;
+    row-gap: 0.15rem;
+  }
+}

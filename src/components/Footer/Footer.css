@@ -1,0 +1,25 @@
+/* Visual intent: a quiet dark footer that mirrors the header band, with the
+   TMDb attribution required by the API terms. */
+
+.app-footer {
+  background: #1f2330;
+  color: #d3d7e0;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+.app-footer__line {
+  margin: 0;
+}
+
+.app-footer__link {
+  color: #9eb6ff;
+  text-decoration: underline;
+}
+
+.app-footer__link:hover,
+.app-footer__link:focus-visible {
+  color: #ffffff;
+}

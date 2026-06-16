@@ -1,0 +1,42 @@
+/* Visual intent: a single, compact dropdown that matches the height of the
+   search input and reads as a quiet utility control rather than a primary
+   action. */
+
+.sort-control {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sort-control__select {
+  height: 38px;
+  padding: 0 2rem 0 0.85rem;
+  border: 1px solid #4b5364;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1c1f26;
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%231c1f26' d='M6 8 0 0h12z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+}
+
+.sort-control__select:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+  border-color: #7aa2ff;
+}
+
+.sort-control__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,19 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap');
+
+/* Visual intent: a warm, light page background with crisp dark text and a
+   single accent color (deep navy) used for the header band and primary
+   buttons. The color combinations meet WCAG AA contrast at body sizes:
+   - text #1c1f26 on background #f4f4f4 → contrast ratio ~14.4:1
+   - white #ffffff on header #1f2330   → contrast ratio ~14.6:1 */
+
+:root {
+  --color-page-bg: #f4f4f4;
+  --color-surface: #ffffff;
+  --color-text: #1c1f26;
+  --color-text-muted: #555a64;
+  --color-header: #1f2330;
+  --color-accent: #7aa2ff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, sans-serif;
+  background-color: var(--color-page-bg);
+  color: var(--color-text);
+  line-height: 1.45;
 }
 
 button {
-  background-color: #282c34;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #777;
-  color: white;
+  font-family: inherit;
 }

@@ -1,28 +1,108 @@
-.App {
-  text-align: center;
-}
+/* Visual intent: the app fills the viewport in a column layout — header,
+   main content (the grid), and footer pinned to the bottom. */
 
-.App-header {
-  background-color: #282c34;
+.app {
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
+  flex-direction: column;
 }
 
-@media (max-width: 600px) {
-  .movie-card {
-    width: 100%;
+.app__main {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Visual intent: on desktop the movie grid takes the bulk of the width and a
+   compact sidebar with Favorites + Watched sits to its right. On narrower
+   viewports the sidebar moves above the grid so it stays discoverable. */
+.app__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.app__content--no-sidebar {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Header toggle button — sits next to the search bar and sort control. */
+.app__sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 38px;
+  padding: 0 1rem;
+  border: 1px solid #4b5364;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1c1f26;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.app__sidebar-toggle:hover {
+  background: #313749;
+  color: #ffffff;
+}
+
+.app__sidebar-toggle:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+.app__sidebar-toggle[aria-expanded='true'] {
+  background: #1f2330;
+  color: #ffffff;
+  border-color: #1f2330;
+}
+
+.app__sidebar-toggle-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.25rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: #e0245e;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.app__list-wrap {
+  min-width: 0;
+}
+
+/* MovieList already has its own outer padding, so when nested inside the
+   layout grid we let the wrapper handle horizontal spacing instead. */
+.app__list-wrap .movie-list {
+  padding: 0;
+}
+
+.app__list-wrap .movie-list__load-more-wrap {
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  .app__content {
+    grid-template-columns: 1fr;
   }
 
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
+  .app__content .sidebar {
+    position: static;
+    order: -1;
   }
+}
 
-  .search-bar form {
-    flex-direction: column;
+@media (max-width: 599px) {
+  .app__content {
+    padding: 1rem;
+    gap: 1rem;
   }
 }

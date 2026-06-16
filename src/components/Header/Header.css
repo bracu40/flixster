@@ -1,0 +1,39 @@
+/* Visual intent: a dark, full-width header with the app name centered, a
+   horizontal control row beneath it that holds the search field on the left
+   and the sort dropdown on the right. The dark band anchors the page and
+   gives high contrast against the light card grid below. */
+
+.app-header {
+  background: #1f2330;
+  color: #ffffff;
+  padding: 1.25rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-header__title {
+  margin: 0;
+  font-family: 'Bebas Neue', 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.app-header__controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 599px) {
+  .app-header__controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

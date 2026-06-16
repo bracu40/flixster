@@ -1,0 +1,133 @@
+/* Visual intent: cards read as a clean, light tile in a grid; the poster
+   dominates, the title and rating sit below it, and the whole tile lifts
+   subtly on hover for tactile feedback. */
+
+.movie-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  outline: none;
+}
+
+.movie-card:hover,
+.movie-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.movie-card:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+.movie-card__poster-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #2a2f3a;
+  overflow: hidden;
+}
+
+.movie-card--watched .movie-card__poster {
+  filter: grayscale(0.4) brightness(0.85);
+}
+
+.movie-card__actions {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 1;
+}
+
+.movie-card__icon-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(28, 31, 38, 0.72);
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.movie-card__icon-btn:hover {
+  background: rgba(28, 31, 38, 0.92);
+  transform: scale(1.05);
+}
+
+.movie-card__icon-btn:focus-visible {
+  outline: 3px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+.movie-card__icon-svg {
+  display: block;
+}
+
+.movie-card__icon-btn--fav.is-active {
+  background: #e0245e;
+  color: #ffffff;
+}
+
+.movie-card__icon-btn--watched.is-active {
+  background: #2a8a4a;
+  color: #ffffff;
+}
+
+.movie-card__watched-badge {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background: rgba(42, 138, 74, 0.95);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.movie-card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-card__body {
+  padding: 0.85rem 0.75rem 1rem;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.movie-card__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1c1f26;
+  line-height: 1.25;
+}
+
+.movie-card__rating {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #555a64;
+}
